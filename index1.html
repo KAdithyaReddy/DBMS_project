@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sign Up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(90deg, #008f58, #00458a, #798184, #008f58);
+            height: 100vh;
+        }
+
+        .container {
+            /* border: 1px solid black; */
+            -webkit-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            -moz-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            height: 85vh;
+            width: 80%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            /* background: url("cleaning-6837687.png"), white; */
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 40px auto;
+            border-radius: 10px;
+
+        }
+
+        .sub-container {
+            /* border: 1px solid rgb(112, 247, 150); */
+            border-radius: 9px;
+            /* position: absolute; */
+            right: 65px;
+            width: 30%;
+            height: 80%;
+            text-align: center;
+            background-color: #00458a;
+            font-weight: bolder;
+            background-size: cover;
+            background-attachment: fixed;
+            -webkit-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            -moz-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* justify-content: flex-end; */
+        }
+
+        .logo {
+            width: 400px;
+            position: absolute;
+            left: 155px;
+            border-radius: 10px;
+        }
+
+        .head {
+            /* border: 1px solid green; */
+            margin: 30px 20px 20px 20px;
+            font-family: 'Quicksand', sans-serif;
+            color: whitesmoke
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 10px;
+            margin: 10px 0px;
+            width: 80%;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            color: #0079a5
+        }
+
+        input[type="submit"] {
+            border: none;
+            
+            /* margin: 19px; */
+            width: 30%;
+            
+            color: #00458a;
+            font-weight: bolder;
+        }
+
+        .foot>p {
+            /* border: 1px solid black; */
+            margin: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: small;
+            color: azure;
+        }
+
+        .su {
+            text-decoration: none;
+            padding: 10px 10px 10px 10px;
+            height: 40px;
+            
+            
+            
+        }
+
+        .su:hover {
+            text-decoration: none;
+            transform: scale(1.03);
+            background-color: rgb(234, 218, 218);
+        }
+
+        .button{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 1px solid black; */
+            margin: 25px 38px;
+            color: red;
+            margin-left: 35px;
+            
+
+            
+        }
+        button:hover{
+            transform: scale(1.03);
+            background-color: rgb(234, 218, 218);
+
+        }
+        .submitbts{
+            padding: 5px 5px 5px 5px;
+            height: 40px;
+            border-radius: 17px;
+            margin-left: 20px;
+        }
+        .submitbts:hover{
+            transform: scale(1.03);
+            background-color: rgb(234, 218, 218);
+        }
+
+        .button a {
+            font-size: small;
+            text-decoration: none;
+            color: white;
+        }
+
+        .button a:hover {
+            text-decoration: none;
+        }
+
+        .btns2 {
+            display: flex;
+            flex-direction: column;
+            margin: 25px 15px;
+        }
+
+        button {
+            border: none;
+            
+            padding: 5px 5px 5px 5px;
+
+            border-radius: 17px;
+            margin: 25px;
+            color: #00458a;
+            font-weight: bolder;
+        }
+
+        .forgotPass {
+            height: 40px;
+            width: 55%;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .forgotPass:hover {
+            text-decoration: none;
+            background-color: rgb(227, 210, 210);
+        }
+
+        .image-container {
+            width: 50%;
+            height: 80%;
+            border-radius: 9px;
+        }
+
+        /* slider */
+        .img-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* margin: 10px; */
+            background-color: #00458a;
+        }
+
+        .img-slider .slide {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            clip-path: circle(0% at 0 50%);
+        }
+
+        .img-slider .slide.active {
+            clip-path: circle(150% at 0 50%);
+            transition: 2s;
+            transition-property: clip-path;
+        }
+
+        .img-slider .slide img {
+            position: relative;
+            z-index: 1;
+            /* object-fit:cover; */
+            height:400px;
+            width:max-content;
+        }
+        
+        .img-slider .slide .info {
+            position: absolute;
+            top: 0;
+            padding: 15px 30px;
+        }
+
+        .img-slider .slide .info h2 {
+            color: #fff;
+            font-size: 45px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .img-slider .slide .info h3 {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.1);
+            font-size:  25px;
+            width: 60%;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .img-slider .navigation {
+            z-index: 2;
+            position: absolute;
+            display: flex;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .img-slider .navigation .btn {
+            background: rgba(255, 255, 255, 0.5);
+            width: 12px;
+            height: 12px;
+            margin: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .img-slider .navigation .btn.active {
+            background: #2696E9;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+        .img-slider{
+            
+            content: 100% 100%;
+        }
+        img{
+            
+            object-fit: fill !important;
+        }
+        .a_tagger{
+            text-decoration: none;
+            color: #00458a !important;
+            
+        }
+        .image-container{
+            -webkit-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            -moz-box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+            box-shadow: 4px 3px 22px 1px rgba(171, 161, 171, 1);
+        }
+        @media screen and (max-width: 800px){
+            
+            .image-container{
+                display: none;
+            }
+            .cred{
+                width: 100% !important;
+            }
+            .sub-container{
+                width: 80%;
+            }
+
+            
+        }
+
+        /* @media (max-width: 820px}) {
+            .img-slider {
+                width: 600px;
+                height: 375px;
+            }
+
+            .img-slider .slide .info {
+                padding: 10px 25px;
+            }
+
+            .img-slider .slide .info h2 {
+                font-size: 35px;
+            }
+
+            .img-slider .slide .info p {
+                width: 70%;
+                font-size: 15px;
+            }
+
+            .img-slider .navigation {
+                bottom: 25px;
+            }
+
+            .img-slider .navigation .btn {
+                width: 10px;
+                height: 10px;
+                margin: 8px;
+            }
+        } */
+
+        /* @media (max-width: 620px) {
+            .img-slider {
+                width: 400px;
+                height: 250px;
+            }
+
+            .img-slider .slide .info {
+                padding: 10px 20px;
+            }
+
+            .img-slider .slide .info h2 {
+                font-size: 30px;
+            }
+
+            .img-slider .slide .info p {
+                width: 80%;
+                font-size: 13px;
+            }
+
+            .img-slider .navigation {
+                bottom: 15px;
+            }
+
+            .img-slider .navigation .btn {
+                width: 8px;
+                height: 8px;
+                margin: 6px;
+            }
+        } */
+
+        /* @media (max-width: 420px) {
+            .img-slider {
+                width: 320px;
+                height: 200px;
+            }
+
+            .img-slider .slide .info {
+                padding: 5px 10px;
+            }
+
+            .img-slider .slide .info h2 {
+                font-size: 25px;
+            }
+
+            .img-slider .slide .info p {
+                width: 90%;
+                font-size: 11px;
+            }
+
+            .img-slider .navigation {
+                bottom: 10px;
+            }
+        } */
+        img{
+            height: 70vh !important;
+            width: 100% !important;
+        }
+        .info{
+            z-index: 1;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <img src="./logo.jpg" class="logo" alt="logo"> -->
+        <div class="image-container">
+            <div class="img-slider">
+                <div class="slide active" >
+                    <img src="./log.jpg    " alt="" >
+
+
+                    <div class="info">
+                       
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./bg2.jpg" alt="" >
+                    <div class="info">
+                    <br>
+                        
+                        <h3>“Powering over 30 Million no.of homes in India”.</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./bg3.jpg" alt="">
+                    <div class="info">
+                        <br>
+                        <h3>"Committed to India's energy security".</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./bg4.jpg" alt="" >   
+                    <div class="info">
+                        <br>
+                        <h3>"Optimizng sustainable use of resources through next gen technology".</h3]>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="d.jpg" alt="" >
+                    <div class="info">
+                        <br>
+                        <h3>“A strong renewable energy industry is good for our environment and our economy.”</h3>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <div class="btn active"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                    <div class="btn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-container">
+
+        </div>
+
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
